@@ -6,19 +6,18 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:07:14 by lamorim           #+#    #+#             */
-/*   Updated: 2021/09/26 19:01:01 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/26 21:41:39 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include <stdio.h>
+#include "libft.h"
 
 static void	ft_read_string(const char *fmt, va_list ap);
 static void	ft_check_fmt(const char *fmt, va_list ap);
 
 int	ft_printf(const char *fmt, ...)
 {
-	va_list ap;
+	va_list	ap;
 
 	va_start(ap, fmt);
 	ft_read_string(fmt, ap);
@@ -60,20 +59,4 @@ static void	ft_check_fmt(const char *fmt, va_list ap)
 //		put_hex
 	else if (*fmt == '%')
 		ft_putchar_fd('%', 1);
-}
-
-int	main(void)
-{
-	const char	*string;
-	char		c;
-	int			d;
-	int			i;
-
-	string = "Uma string";
-	c = 'a';
-	d = 10;
-	i = 11;
-	ft_printf("Teste char: %c\nTeste string: %s\nTeste int e decimal: %d e %i\nTeste %%:  %%\n", c, string, d, i);
-	//printf("Teste: %s\n", test);
-	return (0);
 }
