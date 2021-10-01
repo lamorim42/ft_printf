@@ -4,7 +4,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libftprintf.a
 
-MAIN = main.c
+MAIN = testao.c
 
 CC = clang
 CCLIB = ar rcs
@@ -24,6 +24,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		make -C $(LIBPATH)
+		cp $(LIBPATH)/libft.a $(NAME)
 		$(CCLIB) $(NAME) $(OBJ)
 
 libft:

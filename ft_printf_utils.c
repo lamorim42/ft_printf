@@ -17,14 +17,14 @@ char	*ft_itoa_address(void *ads)
 	unsigned long	ads_cpy;
 	const char		*prefix;
 	char			*temp;
-	char			*returning;
+	char			*nbr;
 
 	prefix = "0x";
 	ads_cpy = (unsigned long) ads;
 	temp = ft_itoa_base(ads_cpy, HEX_BASE, LOWER);
-	returning= ft_strjoin(prefix, temp);
+	nbr = ft_strjoin(prefix, temp);
 	free(temp);
-	return (returning);
+	return (nbr);
 }
 
 int	ft_putchar(char c)

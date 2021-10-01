@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 static int	ft_put_ph(const char **fmt, va_list ap, int *printrd_chars);
 

@@ -1,3 +1,8 @@
 a.out
 main.c
 .vscode
+*.o
+*.a
+ft_printf_tester/
+printfTester/
+testao.c
