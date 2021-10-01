@@ -90,7 +90,10 @@ int	ft_putstr(char *s)
 
 	len = 0;
 	if (!s)
-		return (len);
+	{
+		write (STDOUT, "(null)", 6);
+		return (6);
+	}
 	while (s[len])
 		len++;
 	write (STDOUT, s, len);

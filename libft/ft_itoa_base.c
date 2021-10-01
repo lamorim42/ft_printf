@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-static int	ft_count_digit(long int c, int base);
+static int	ft_count_digit(unsigned long int c, int base);
 
 char	*ft_itoa_base(unsigned long int n, int base, int upper)
 {
 	const char			*hold_base;
 	char				*ptr;
 	char				*str;
-	long int			n_cpy;
+	unsigned long int	n_cpy;
 	int					len;
 
 	if (upper)
@@ -43,7 +43,7 @@ char	*ft_itoa_base(unsigned long int n, int base, int upper)
 	return (ptr);
 }
 
-static int	ft_count_digit(long int c, int base)
+static int	ft_count_digit(unsigned long int c, int base)
 {
 	int	len;
 
