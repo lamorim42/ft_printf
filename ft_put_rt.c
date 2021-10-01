@@ -67,9 +67,9 @@ int	ft_putnbr(int number)
 int	ft_putunbr(unsigned int number)
 {
 	unsigned int	n_cpy;
-	char		*ptr;
-	char		*str;
-	int			len;
+	char			*ptr;
+	char			*str;
+	int				len;
 
 	n_cpy = number;
 	len = ft_count_digit(n_cpy);
@@ -97,5 +97,5 @@ int	ft_putstr(char *s)
 	while (s[len])
 		len++;
 	write (STDOUT, s, len);
-	return(len);
+	return (len);
 }

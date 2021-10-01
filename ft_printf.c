@@ -34,7 +34,7 @@ int	ft_printf(const char *fmt, ...)
 		}
 		ft_putchar(*fmt);
 		printrd_chars++;
-		if(*fmt)
+		if (*fmt)
 			fmt++;
 	}
 	va_end(ap);

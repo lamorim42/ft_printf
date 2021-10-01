@@ -30,5 +30,5 @@ char	*ft_itoa_address(void *ads)
 int	ft_putchar(char c)
 {
 	write (STDOUT, &c, 1);
-	return(1);
+	return (1);
 }
