@@ -1,4 +1,4 @@
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printf_utils.c ft_put_rt.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -21,7 +21,7 @@ RM = rm -f
 	$(CC) -I $(LIBPATH) $(FLAGS) -c $< -o $(<:.c=.o)
 
 all: $(NAME)
-	
+
 $(NAME): $(OBJ)
 		make -C $(LIBPATH)
 		$(CCLIB) $(NAME) $(OBJ)
