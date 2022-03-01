@@ -6,12 +6,11 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/26 16:07:14 by lamorim           #+#    #+#             */
-/*   Updated: 2021/09/30 21:30:23 by lamorim          ###   ########.fr       */
+/*   Updated: 2022/02/25 21:10:38 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 static int	ft_put_ph(const char **fmt, va_list ap, int *printrd_chars);
 static int	ft_put_free(va_list ap, int flag);
