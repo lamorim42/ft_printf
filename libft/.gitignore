@@ -4,3 +4,4 @@ libft.pdf
 .vscode/
 libftTester
 test_base.c
+./tests/

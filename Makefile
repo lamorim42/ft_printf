@@ -1,50 +1,81 @@
-SRC = ft_printf.c ft_printf_utils.c ft_put_rt.c
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/06 14:46:45 by lamorim           #+#    #+#              #
+#    Updated: 2022/03/06 16:26:55 by lamorim          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJ = $(SRC:.c=.o)
+#Name
+NAME =	libftprintf.a
 
-NAME = libftprintf.a
+#Lib compile options
+CCLIB =	ar rcs
+LIB =	libft/
 
-MAIN = testao.c
+#Compile options
+CC =	clang
+CFLAGS =	-Wall -Werror -Wextra -g
 
-CC = clang
-CCLIB = ar rcs
+INCLUDE =	include/
+INCLUDELIB =	libft/include/
 
-FLAGS = -Wall -Wextra -Werror
-SANITIZE = -g -fsanitize=address
-LIBPATH = libft/
-LIBFTFLAG = -L $(LIBPATH) -lft
-LIB_FLAG = -L. -lftprintf
+SRC =	ft_printf.c \
+		ft_dprintf.c \
+		ft_list.c \
+		ft_put_inlst.c \
+		ft_printf_utils.c \
 
-RM = rm -f
+OBJ =	$(SRC:.c=.o)
+OBJ_DIR = $(addprefix obj/, $(OBJ))
 
-.c.o:
-	$(CC) -I $(LIBPATH) $(FLAGS) -c $< -o $(<:.c=.o)
+#Remove options
+RM =	rm -f
 
-all: $(NAME)
+#Paths to search
+VPATH = src
 
-$(NAME): $(OBJ)
-		make -C $(LIBPATH)
-		cp $(LIBPATH)/libft.a $(NAME)
-		$(CCLIB) $(NAME) $(OBJ)
+# Default goal
+.DEFAULT_GOAL	= all
 
-libft:
-	make -C $(LIBPATH)
-	make clean -C $(LIBPATH)
+#Git configurations
+SEP ="\n\e[0;36m--------------------------------------------------------\e[0m\n"
+ADD	= .
+MSG	= Update
 
-printf: all
-	$(CC) $(SANITIZE) $(FLAGS) $(MAIN) -I $(LIBPATH) $(LIB_FLAG) $(LIBFTFLAG)
-	./a.out
+#Rules
+obj/%.o: %.c
+	@$(CC) $(CFLAGS) -I $(INCLUDE) -I $(INCLUDELIB) -c $< -o $@
+	@echo -n █
 
-libft_fclean:
-		make fclean -C $(LIBPATH)
+all:	$(NAME)
+
+$(NAME): $(OBJ_DIR)
+	@make -C $(LIB)
+	@cp $(LIB)/libft.a $(NAME)
+	@$(CCLIB) $(NAME) $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJ) a.out
+	$(RM) $(OBJ_DIR)
+	make clean -C $(LIB)
 
-fclean: clean
+fclean:	clean
 	$(RM) $(NAME)
-	make fclean -C $(LIBPATH)
+	make fclean -C $(LIB)
 
-re: fclean all
+re:	fclean all
 
-.PHONY: all libft printf libft_fclean clean fclean re
+git:		fclean
+			git status
+			@echo $(SEP)
+			git add $(ADD)
+			@echo $(SEP)
+			git commit -m "$(MSG)"
+			@echo $(SEP)
+			git status
+
+.PHONY= all clean fclean re

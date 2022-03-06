@@ -6,7 +6,7 @@
 /*   By: lamorim <lamorim@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 23:07:56 by lamorim           #+#    #+#             */
-/*   Updated: 2021/09/30 19:33:01 by lamorim          ###   ########.fr       */
+/*   Updated: 2021/09/30 18:37:13 by lamorim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ size_t	ft_strlen(const char *s);
  * @brief copies up to dstsize - 1 characters from the string src to dst,
  * NUL-terminating the result if dstsize is not 0
  *
- * @param
+ * @param 
  * *dst string copy of *src
  * *src string font
  * dstsize size of dst
@@ -125,7 +125,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
  * @brief returns a pointer to the first occurrence of the
  * character c in the string s.
  *
- * @param
+ * @param 
  * s pointer to string
  * c letter to looking for
  *
@@ -137,7 +137,7 @@ char	*ft_strchr(const char *s, int c);
  * @brief returns a pointer to the last occurrence of the
  * character c in the string s.
  *
- * @param
+ * @param 
  * s pointer to string
  * c letter to looking for
  *
@@ -148,7 +148,7 @@ char	*ft_strrchr(const char *s, int c);
 /**
  * @brief compares the first n bytes of s1 and s2
  *
- * @param
+ * @param 
  * s1 pointer to string
  * s2 pointer to string
  * n number of characters to be compared
@@ -162,7 +162,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 /**
  * @brief concatenate src to dst string
  *
- * @param
+ * @param 
  * dst string destiny
  * src string source
  * size size of dst buff
@@ -175,7 +175,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 /**
  * @brief find the firts occurrence of little string in big string
  *
- * @param
+ * @param 
  * big string base
  * little string to be find
  * len limit of search
@@ -189,9 +189,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
  * @brief fills the first n bytes of the memory area
  * pointed to by s with the constant byte c.
  *
- * @param
+ * @param 
  * s pointer to memory area
- * c constant byte
+ * c constant byte 
  * n the amount of bytes
  *
  * @return void* returns point to s
@@ -201,8 +201,8 @@ void	*ft_memset(void *s, int c, size_t n);
 /**
  * @brief erases the data in the n bytes of the memory starting at
  * the location pointed to by s
- *
- * @param
+ * 
+ * @param 
  * s pointer to memory area
  * n the number of bytes to be 0
  *
@@ -213,8 +213,8 @@ void	ft_bzero(void *s, size_t n);
 /**
  * @brief cans the initial n bytes of the memory area pointed to by s
  * for the first instance of c
- *
- * @param
+ * 
+ * @param 
  * s pointer to memory area
  * c char to looking for
  * n the number of bytes to be scaned
@@ -225,9 +225,9 @@ void	*ft_memchr(const void *s, int c, size_t n);
 
 /**
  * @brief copies n bytes from memory area src to memory area dest
- *
- *
- * @param
+ * 
+ * 
+ * @param 
  * dest memory area destination
  * src memory area source
  * n the number of bytes to be copy
@@ -238,9 +238,9 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 
 /**
  * @brief copies n bytes from memory area src to memory area dest
- *
- *
- * @param
+ * 
+ * 
+ * @param 
  * dest memory area destination
  * src memory area source
  * n the number of bytes to be copy
@@ -252,8 +252,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 /**
  * @brief compares the first n bytes (each interpreted as unsigned char)
  * of the memory areas s1 and s2.
- *
- *
+ * 
+ * 
  * @param
  * s1 memory area to be compare with
  * s2 memory area to be compare
@@ -267,7 +267,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /**
  * @brief converts the initial portion of the string pointed to by nptr to int.
- *
+ * 
  * @param
  * nptr initial string area
  *
@@ -279,7 +279,7 @@ int		ft_atoi(const char *nptr);
  * @brief allocates memory for an array of nmemb elements of size bytes each
  * and returns a pointer to the allocated memory. The memory is set to zero.
  * If nmemb or size is 0, then calloc() returns either NULL
- *
+ * 
  * @param
  * nmemb number elements of the array
  * size size to be allocated
@@ -291,7 +291,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 /**
  * @brief Create a duplications of string s, the space of de duplicate of
  * s is allocate with malloc.
- *
+ * 
  * @param
  * s the string to be duplicated
  *
@@ -302,10 +302,10 @@ char	*ft_strdup(const char *s);
 // Part 2
 
 /**
- * @brief Allocates (with malloc(3)) and returns a substring
+ * @brief Allocates (with malloc(3)) and returns a substring 
  * from the string ’s’. The substring begins at index ’start’
  * and is of maximum size ’len’.
- *
+ * 
  * @param
  * s The string from which to create the substring.
  * start The start index of the substring in the string s
@@ -318,7 +318,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 /**
  * @brief Allocates (with malloc(3)) and returns a new string,
  * which is the result of the concatenation of ’s1’ and ’s2’.
- *
+ * 
  * @param
  * s1 The prefix string.
  * s2 The suffix string.
@@ -332,7 +332,7 @@ char	*ft_strjoin(const char *s1, const char *s2);
  * @brief Allocates (with malloc(3)) and returns a copy of
  * ’s1’ with the characters specified in ’set’ removed
  * from the beginning and the end of the string.
- *
+ * 
  * @param
  * s1 The string to be trimmed
  * set The reference set of characters to trim
@@ -344,11 +344,11 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_strtrim(const char *s1, const char *set);
 
 /**
- * @brief Allocates (with malloc(3)) and returns an array
+ * @brief Allocates (with malloc(3)) and returns an array 
  * of strings obtained by splitting ’s’ using the
  * character ’c’ as a delimiter. The array must be
  * ended by a NULL pointer.
- *
+ * 
  * @param
  * s* The string to be split
  * c The delimiter character
@@ -359,10 +359,10 @@ char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char c);
 
 /**
- * @brief Allocates (with malloc(3)) and returns a string
+ * @brief Allocates (with malloc(3)) and returns a string 
  * representing the integer received as an argument.
  * Negative numbers must be handled.
- *
+ * 
  * @param
  * n the integer to convert.
  *
@@ -375,7 +375,7 @@ char	*ft_itoa(int n);
  * @brief Applies the function ’f’ to each character of the
  * string ’s’ to create a new string (with malloc(3))
  * resulting from successive applications of ’f’.
- *
+ * 
  * @param
  * *s The string on which to iterate
  * *f The function to apply to each character
@@ -390,7 +390,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * string passed as argument, and passing its index
  * as first argument. Each character is passed by
  * address to f to be modified if necessary
- *
+ * 
  * @param
  * *s The string on which to iterate
  * *f The function to apply to each character
@@ -401,7 +401,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 /**
  * @brief Outputs the character ’c’ to the given file descriptor.
- *
+ * 
  * @param
  * c The character to output.
  * fd The file descriptor on which to write.
@@ -412,7 +412,7 @@ void	ft_putchar_fd(char c, int fd);
 
 /**
  * @brief Outputs the string ’s’ to the given file descriptor.
- *
+ * 
  * @param
  * *s The string to output.
  * fd The file descriptor on which to write.
@@ -422,9 +422,9 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
 /**
- * @brief Outputs the string ’s’ to the given file
+ * @brief Outputs the string ’s’ to the given file 
  * descriptor, followed by a newline.
- *
+ * 
  * @param
  * *s The string to output
  * fd The file descriptor on which to write.
@@ -435,7 +435,7 @@ void	ft_putendl_fd(char *s, int fd);
 
 /**
  * @brief Outputs the integer ’n’ to the given file descriptor.
- *
+ * 
  * @param
  * n The integer to output.
  * fd The file descriptor on which to write.
@@ -444,7 +444,7 @@ void	ft_putendl_fd(char *s, int fd);
  */
 void	ft_putnbr_fd(int n, int fd);
 
-char	*ft_itoa_base(unsigned long int n, int base, int upper);
+char	*ft_itoa_base(unsigned int n, int base);
 // GNL
 char	*get_next_line(int fd);
 

@@ -1,53 +1,97 @@
+### Separator
+SEP ="\n\e[0;36m--------------------------------------------------------\e[0m\n"
 
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			ft_toupper.c ft_tolower.c ft_strlen.c  ft_strlcpy.c ft_strnstr.c \
-			ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcat.c \
-			ft_bzero.c ft_memset.c ft_memchr.c ft_memcpy.c ft_memmove.c \
-			ft_memcmp.c \
-			ft_atoi.c \
-			ft_calloc.c ft_strdup.c \
-			ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
-			ft_itoa_base.c \
-			ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
-			ft_putendl_fd.c ft_putnbr_fd.c \
-			get_next_line.c
-
-OBJS	= $(SRCS:.c=.o)
-
+### Name
 NAME	= libft.a
 
-MAIN= main.c
+### Compilation configuration
+CC		= clang
+CFLAG	= -Wall -Wextra -Werror -g3 -I include
 
-OBJ_MAIN= $(MAIN:.c=.o)
+CCLIB	= ar rcs
+
+SRC	=	ft_isalpha.c \
+			ft_isdigit.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_strlen.c \
+			ft_strlcpy.c \
+			ft_strnstr.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_strlcat.c \
+			ft_bzero.c \
+			ft_memset.c \
+			ft_memchr.c \
+			ft_memcpy.c \
+			ft_memmove.c \
+			ft_memcmp.c \
+			ft_atoi.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_itoa_base.c \
+			ft_strmapi.c \
+			ft_striteri.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			get_next_line.c \
+
+OBJ	= $(SRC:.c=.o)
+OBJ_DIR	= $(addprefix obj/, $(OBJ))
+
+VPATH	= src
+
+### Extra configurations
+RM		= rm -f
 
 TEST	= test
 
-CC		= clang
-RM		= rm -f
-CCLIB	= ar rcs
+LFLAG	= -L. -lft
 
-CFLAGS	= -Wall -Wextra -Werror
+### Git configurations
+MSG = Update
+ADD = .
 
-LFLAGS	= -L. -lft
+### Default goal
+.DEFAULT_GOAL	= all
 
-.c.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+### Rules
+obj/%.o: %.c
+			$(CC) $(CFLAG) -c $< -o $@
 
-$(NAME):	$(OBJS)
-			$(CCLIB) $(NAME) $(OBJS)
+$(NAME):	$(OBJ_DIR)
+			$(CCLIB) $(NAME) $(OBJ_DIR)
 
 all:		$(NAME)
 
-main:		$(OBJS) $(OBJ_MAIN) $(NAME)
-			$(CC) $(CFLAGS) -o $(TEST) $(OBJ_MAIN) $(LFLAGS) -lbsd
-			./$(TEST)
-
 clean:
-			$(RM) $(OBJS) $(OBJ_MAIN)
+			$(RM) $(OBJ_DIR)
 
 fclean:		clean
-			$(RM) $(NAME) $(TEST) a.out
+			$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re run main
+git: fclean
+	git status
+	@echo $(SEP)
+	git add $(ADD)
+	@echo $(SEP)
+	git commit -m "$(MSG)"
+	@echo $(SEP)
+	git status
+	@echo $(SEP)
+	git log | head -n 5
+
+.PHONY:		all clean fclean re
