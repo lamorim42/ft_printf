@@ -1,6 +1,8 @@
 
 # ft_printf
 
+![ft_printf](https://game.42sp.org.br/static/assets/achievements/ft_printfe.png)
+
 In this project we have to replicate the famous `printf` function of the [`stdio`](https://pubs.opengroup.org/onlinepubs/007908775/xsh/stdio.h.html) lib.
 
 ## How to browse this repository
